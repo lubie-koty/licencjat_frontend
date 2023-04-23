@@ -1,10 +1,10 @@
-export class AuthenticationDTO {
-    isSuccessful?: boolean;
-    errorMessage?: string;
-    token?: string;
+export interface AuthenticationDTO {
+    isSuccessful: boolean;
+    errorMessage: string;
+    token: string;
 }
 
-export class ActionResponseDTO {
-    isSuccessful?: boolean;
-    errors?: string[];
+export interface ActionResponseDTO {
+    isSuccessful: boolean;
+    errors: string[];
 }

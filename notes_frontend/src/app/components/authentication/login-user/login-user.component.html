@@ -1,0 +1,61 @@
+<div class="mx-auto" style="width: 40%">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">Login</h1>
+            <a class="nav-link" routerLink="/authenticate/register" style="color: dodgerblue">Register a new account</a>
+            <br>
+            <div *ngIf="showError" class="alert alert-danger" role="alert">
+                <span [innerHTML]="errorMessage"></span>
+            </div>
+            <form [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="loginUser(loginForm.value)">
+                <div class="mb-3 row">
+                    <div class="col">
+                        <input
+                            type="email"
+                            id="email"
+                            formControlName="email"
+                            class="form-control"
+                            placeholder="Email"
+                            aria-label="Email"
+                        />
+                    </div>
+                    <div
+                        class="invalid-feedback d-block"
+                        *ngIf="checkField('email') && fieldHasError('email', 'email')"
+                    >
+                        Please provide a valid email
+                    </div>
+                    <div
+                        class="invalid-feedback d-block"
+                        *ngIf="checkField('email') && fieldHasError('email', 'required')"
+                    >
+                        Email is required
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col">
+                        <input
+                            type="password"
+                            id="password"
+                            formControlName="password"
+                            class="form-control"
+                            placeholder="Password"
+                            aria-label="Password"
+                        />
+                        <div
+                            class="invalid-feedback d-block"
+                            *ngIf="checkField('password') && fieldHasError('password', 'required')"
+                        >
+                            Password is required
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-md-1">          
+                        <button type="submit" class="justify-content-evenly btn btn-dark" [disabled]="!loginForm.valid">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

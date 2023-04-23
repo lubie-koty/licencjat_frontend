@@ -1,8 +1,16 @@
-export class NoteDTO {
-    title?: string;
-    content?: string;
+export interface NoteDTO {
+    title: string;
+    content: string;
 }
 
-export class UserDTO {
-    
+export interface UserRegisterDTO {
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
+}
+
+export interface UserLoginDTO {
+    email: string;
+    password: string;
 }
