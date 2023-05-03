@@ -48,7 +48,7 @@ export class RegisterUserComponent implements OnInit {
            this.registerForm.get(fieldName)!.touched;
   }
 
-  public fieldHasError (fieldName: string, errorName:string) : boolean {
+  public fieldHasError (fieldName: string, errorName: string) : boolean {
     return this.registerForm.get(fieldName)!.hasError(errorName);
   }
 
@@ -65,7 +65,6 @@ export class RegisterUserComponent implements OnInit {
         this.router.navigate(['/authenticate/login'], { queryParams: { registrationSuccessful: true } });
       },
       error: (err: HttpErrorResponse) => {
-        console.log(err.message);
         this.showError = true;
         this.errorMessage = err.message;
       }

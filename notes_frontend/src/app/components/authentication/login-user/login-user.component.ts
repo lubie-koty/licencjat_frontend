@@ -34,7 +34,7 @@ export class LoginUserComponent implements OnInit {
            this.loginForm.get(fieldName)!.touched;
   }
 
-  public fieldHasError (fieldName: string, errorName:string) : boolean {
+  public fieldHasError (fieldName: string, errorName: string) : boolean {
     return this.loginForm.get(fieldName)!.hasError(errorName);
   }
 

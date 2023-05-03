@@ -14,3 +14,8 @@ export interface UserLoginDTO {
     email: string;
     password: string;
 }
+
+export interface UserDetailsDTO {
+    firstName: string;
+    lastName: string;
+}

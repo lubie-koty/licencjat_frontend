@@ -25,7 +25,7 @@ export class NotesService {
   }
 
   public editNote (noteId: number, body: NoteDTO) : Observable<ActionResponseDTO> {
-    return this.httpClient.post<ActionResponseDTO>(this.getNotesApiURI(noteId), body);
+    return this.httpClient.patch<ActionResponseDTO>(this.getNotesApiURI(noteId), body);
   }
 
   public deleteNote (noteId: number) : Observable<ActionResponseDTO> {

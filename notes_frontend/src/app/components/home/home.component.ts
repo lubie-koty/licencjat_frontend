@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/entities/models/models';
+
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public userData!: User;
+  public userData!: string;
 
   constructor (
     private authenticationService: AuthenticationService
@@ -16,8 +16,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.authenticationService.getLoggedUserDetails().subscribe(res => {
-      console.log(res);
-      this.userData = res;
+      this.userData = `${res.firstName ?? ''}${res.lastName ? ` ${res.lastName}` : ''}`;
     })
   }
 }
